@@ -3,39 +3,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { testimonials } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'Sarah Johnson',
-    role: 'CEO, TechStart',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&auto=format&fit=crop&q=60',
-    content: 'Arun is an exceptional developer who delivered our project beyond expectations. His attention to detail and problem-solving skills are remarkable.',
-  },
-  {
-    id: 2,
-    name: 'Michael Chen',
-    role: 'CTO, InnovateCo',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&auto=format&fit=crop&q=60',
-    content: 'Working with Arun was a pleasure. He brought innovative solutions to complex problems and consistently delivered high-quality code.',
-  },
-  {
-    id: 3,
-    name: 'Emily Roberts',
-    role: 'Product Manager, DataFlow',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format&fit=crop&q=60',
-    content: 'Arun\'s technical expertise and communication skills made our collaboration seamless. He\'s a true professional who cares about the end result.',
-  },
-  {
-    id: 4,
-    name: 'David Wilson',
-    role: 'Founder, WebScale',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format&fit=crop&q=60',
-    content: 'I\'ve worked with many developers, but Arun stands out for his dedication and skill. He transformed our vision into reality perfectly.',
-  },
-];
 
 export const Testimonials = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

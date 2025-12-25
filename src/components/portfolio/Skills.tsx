@@ -1,46 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { skillCategories, techIcons } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const skillCategories = [
-  {
-    title: 'Frontend',
-    skills: [
-      { name: 'React', level: 95 },
-      { name: 'TypeScript', level: 90 },
-      { name: 'Next.js', level: 85 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'Vue.js', level: 75 },
-    ],
-  },
-  {
-    title: 'Backend',
-    skills: [
-      { name: 'Node.js', level: 90 },
-      { name: 'Python', level: 85 },
-      { name: 'PostgreSQL', level: 80 },
-      { name: 'MongoDB', level: 85 },
-      { name: 'GraphQL', level: 75 },
-    ],
-  },
-  {
-    title: 'Tools & DevOps',
-    skills: [
-      { name: 'Git', level: 95 },
-      { name: 'Docker', level: 80 },
-      { name: 'AWS', level: 75 },
-      { name: 'CI/CD', level: 85 },
-      { name: 'Linux', level: 80 },
-    ],
-  },
-];
-
-const techIcons = [
-  'React', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'MongoDB',
-  'Docker', 'AWS', 'GraphQL', 'Tailwind', 'Next.js', 'Git'
-];
 
 export const Skills = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

@@ -3,51 +3,9 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowUpRight, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { projects } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const projects = [
-  {
-    id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management, payment processing, and analytics dashboard.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'AI Content Generator',
-    description: 'An AI-powered application that generates marketing content, blog posts, and social media captions using GPT-4.',
-    tags: ['Next.js', 'OpenAI', 'TypeScript', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: true,
-  },
-  {
-    id: 3,
-    title: 'Real-time Collaboration Tool',
-    description: 'A Notion-like workspace with real-time editing, comments, and team collaboration features.',
-    tags: ['React', 'WebSocket', 'MongoDB', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
-  },
-  {
-    id: 4,
-    title: 'Health & Fitness Tracker',
-    description: 'A mobile-first PWA for tracking workouts, nutrition, and health metrics with AI-powered insights.',
-    tags: ['Vue.js', 'Python', 'TensorFlow', 'Firebase'],
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
-  },
-];
 
 export const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);

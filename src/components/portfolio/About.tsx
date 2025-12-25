@@ -1,32 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Code2, Lightbulb, Rocket, Users } from 'lucide-react';
+import { aboutData } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const highlights = [
-  {
-    icon: Code2,
-    title: 'Clean Code',
-    description: 'Writing maintainable, scalable, and efficient code',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Problem Solver',
-    description: 'Turning complex problems into simple solutions',
-  },
-  {
-    icon: Rocket,
-    title: 'Fast Learner',
-    description: 'Constantly adapting to new technologies',
-  },
-  {
-    icon: Users,
-    title: 'Team Player',
-    description: 'Collaborating effectively with cross-functional teams',
-  },
-];
 
 export const About = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -109,35 +86,22 @@ export const About = () => {
                 About Me
               </span>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-                Crafting Digital
+                {aboutData.heading}
                 <br />
-                <span className="text-gradient">Experiences</span>
+                <span className="text-gradient">{aboutData.headingHighlight}</span>
               </h2>
             </div>
 
             <div ref={contentRef} className="space-y-6 text-muted-foreground text-lg">
-              <p>
-                I'm a passionate full-stack developer with over 5 years of experience
-                building web applications that make a difference. I specialize in
-                creating seamless user experiences using modern technologies like
-                React, Node.js, and cloud platforms.
-              </p>
-              <p>
-                My journey in tech started with a curiosity about how things work on
-                the internet. Today, I transform that curiosity into innovative
-                solutions that help businesses grow and users succeed.
-              </p>
-              <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge through
-                technical writing and mentoring.
-              </p>
+              {aboutData.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
           </div>
 
           {/* Right Column - Cards */}
           <div ref={cardsRef} className="grid sm:grid-cols-2 gap-6">
-            {highlights.map(({ icon: Icon, title, description }) => (
+            {aboutData.highlights.map(({ icon: Icon, title, description }) => (
               <div
                 key={title}
                 className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/50 hover-lift cursor-default"

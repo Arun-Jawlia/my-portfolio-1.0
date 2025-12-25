@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { personalInfo, socialLinks } from '@/lib/data';
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +51,10 @@ export const Hero = () => {
     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleDownloadResume = () => {
+    window.open(personalInfo.resumeUrl, '_blank');
+  };
+
   return (
     <section
       ref={containerRef}
@@ -67,10 +72,12 @@ export const Hero = () => {
       <div className="container-custom relative z-10">
         <div className="max-w-5xl mx-auto text-center">
           {/* Greeting */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-background/50 backdrop-blur-sm mb-8">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm text-muted-foreground">Available for work</span>
-          </div>
+          {personalInfo.availableForWork && (
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-background/50 backdrop-blur-sm mb-8">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm text-muted-foreground">Available for work</span>
+            </div>
+          )}
 
           {/* Main Title */}
           <h1
@@ -79,7 +86,7 @@ export const Hero = () => {
           >
             Hi, I'm{' '}
             <span className="relative inline-block">
-              <span className="text-gradient">Arun Jawlia</span>
+              <span className="text-gradient">{personalInfo.name}</span>
               <span className="absolute -bottom-2 left-0 w-full h-3 bg-primary/20 -skew-x-12" />
             </span>
           </h1>
@@ -90,7 +97,7 @@ export const Hero = () => {
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
             A passionate{' '}
-            <span className="text-foreground font-medium">Full-Stack Developer</span>{' '}
+            <span className="text-foreground font-medium">{personalInfo.title}</span>{' '}
             crafting beautiful digital experiences with modern technologies.
           </p>
 
@@ -107,23 +114,22 @@ export const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-6 text-base font-medium"
+              onClick={handleDownloadResume}
+              className="px-8 py-6 text-base font-medium group"
             >
-              Get In Touch
+              <Download className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
+              Download Resume
             </Button>
           </div>
 
           {/* Social Links */}
           <div className="flex items-center justify-center gap-6">
-            {[
-              { icon: Github, href: '#', label: 'GitHub' },
-              { icon: Linkedin, href: '#', label: 'LinkedIn' },
-              { icon: Twitter, href: '#', label: 'Twitter' },
-            ].map(({ icon: Icon, href, label }) => (
+            {socialLinks.map(({ icon: Icon, href, label }) => (
               <a
                 key={label}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 className="p-3 rounded-full border border-border hover:border-primary hover:text-primary transition-all duration-300 hover:-translate-y-1"
               >

@@ -1,23 +1,10 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowUp, Github, Linkedin, Twitter, Heart } from 'lucide-react';
+import { ArrowUp, Heart } from 'lucide-react';
+import { socialLinks, navLinks, footerData, personalInfo } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-];
-
-const navLinks = [
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Contact', href: '#contact' },
-];
 
 export const Footer = () => {
   const footerRef = useRef<HTMLElement>(null);
@@ -69,10 +56,10 @@ export const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#" className="font-display text-3xl font-bold inline-block mb-4">
-              AJ<span className="text-primary">.</span>
+              {personalInfo.initials}<span className="text-primary">.</span>
             </a>
             <p className="text-background/70 text-sm max-w-xs">
-              Full-Stack Developer passionate about creating beautiful digital experiences.
+              {footerData.tagline}
             </p>
           </div>
 
@@ -100,6 +87,8 @@ export const Footer = () => {
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="w-10 h-10 rounded-full border border-background/20 flex items-center justify-center hover:border-primary hover:text-primary transition-all hover:-translate-y-1"
                 >
@@ -115,11 +104,9 @@ export const Footer = () => {
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-background/50">
-          <p>
-            © {new Date().getFullYear()} Arun Jawlia. All rights reserved.
-          </p>
+          <p>{footerData.copyright}</p>
           <p className="flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> in India
+            Made with <Heart className="w-4 h-4 text-primary fill-primary" /> in {footerData.madeIn}
           </p>
         </div>
       </div>

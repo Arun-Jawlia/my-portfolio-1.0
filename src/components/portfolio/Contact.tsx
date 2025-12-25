@@ -7,18 +7,13 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import emailjs from '@emailjs/browser';
+import { contactInfo, personalInfo } from '@/lib/data';
 
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 gsap.registerPlugin(ScrollTrigger);
-
-const contactInfo = [
-  { icon: Mail, label: 'Email', value: 'arunkumar08.mk@gmail.com', href: 'mailto:arunkumar08.mk@gmail.com', clickable: true },
-  { icon: Phone, label: 'Phone', value: '+91 9718653508', href: 'tel:+919718653508', clickable: false },
-  { icon: MapPin, label: 'Location', value: 'New Delhi, India', href: '#', clickable: false },
-];
 
 export const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -119,7 +114,6 @@ export const Contact = () => {
     }
   };
 
-
   return (
     <section id="contact" ref={sectionRef} className="section-padding">
       <div className="container-custom">
@@ -147,7 +141,7 @@ export const Contact = () => {
                 <Input
                   id="name"
                   type="text"
-                  placeholder="Name"
+                  placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
@@ -161,7 +155,7 @@ export const Contact = () => {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="xyz@gmail.com"
+                  placeholder="john@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
@@ -174,7 +168,7 @@ export const Contact = () => {
                 </label>
                 <Textarea
                   id="message"
-                  placeholder="Tell me about your project/requirement..."
+                  placeholder="Tell me about your project..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
@@ -199,10 +193,10 @@ export const Contact = () => {
           {/* Contact Info */}
           <div ref={infoRef} className="space-y-8">
             <div className="space-y-6">
-              {contactInfo.map(({ icon: Icon, label, value, href, clickable }) => (
+              {contactInfo.map(({ icon: Icon, label, value, href }) => (
                 <a
                   key={label}
-                  href={clickable ? href : undefined}
+                  href={href}
                   className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover-lift group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -221,7 +215,7 @@ export const Contact = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="w-8 h-8 text-primary mx-auto mb-2" />
-                  <p className="text-sm text-muted-foreground">New Delhi, India</p>
+                  <p className="text-sm text-muted-foreground">{personalInfo.location}</p>
                 </div>
               </div>
               {/* Decorative circles */}

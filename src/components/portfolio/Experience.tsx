@@ -2,43 +2,9 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Briefcase, GraduationCap } from 'lucide-react';
+import { experiences } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
-
-const experiences = [
-  {
-    type: 'work',
-    title: 'Senior Full-Stack Developer',
-    company: 'TechCorp Inc.',
-    period: '2022 - Present',
-    description: 'Leading development of enterprise applications, mentoring junior developers, and architecting scalable solutions.',
-    achievements: ['Reduced load time by 40%', 'Led team of 5 developers', 'Implemented CI/CD pipeline'],
-  },
-  {
-    type: 'work',
-    title: 'Full-Stack Developer',
-    company: 'StartupXYZ',
-    period: '2020 - 2022',
-    description: 'Built and maintained multiple web applications, worked closely with product team to deliver features.',
-    achievements: ['Developed MVP in 3 months', 'Increased user retention by 25%', 'Integrated 10+ third-party APIs'],
-  },
-  {
-    type: 'work',
-    title: 'Frontend Developer',
-    company: 'WebAgency',
-    period: '2018 - 2020',
-    description: 'Created responsive websites and interactive web applications for diverse clients across industries.',
-    achievements: ['Delivered 20+ client projects', 'Mastered React ecosystem', 'Improved team workflow'],
-  },
-  {
-    type: 'education',
-    title: 'B.Tech in Computer Science',
-    company: 'Tech University',
-    period: '2014 - 2018',
-    description: 'Graduated with honors, specializing in software engineering and web technologies.',
-    achievements: ['GPA: 3.8/4.0', 'Dean\'s List', 'Best Capstone Project Award'],
-  },
-];
 
 export const Experience = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
