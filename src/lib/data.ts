@@ -1,21 +1,48 @@
-import { Code2, Lightbulb, Rocket, Users, Mail, MapPin, Phone, Github, Linkedin } from 'lucide-react';
+import { Code2, Lightbulb, Rocket, Users, Mail, MapPin, Phone, Github, Linkedin, Twitter } from 'lucide-react';
 
 // ============================================
 // PERSONAL INFORMATION - Edit this section to update your portfolio
 // ============================================
+
+// Role type for configurable developer title
+export type DeveloperRole = 'fullstack' | 'frontend' | 'backend' | 'custom';
+
+// Role configurations
+export const roleConfig = {
+  fullstack: {
+    title: 'Full-Stack Developer',
+    tagline: 'A passionate Full-Stack Developer crafting beautiful digital experiences with modern technologies.',
+  },
+  frontend: {
+    title: 'Frontend Developer',
+    tagline: 'A passionate Frontend Developer creating stunning user interfaces with modern technologies.',
+  },
+  backend: {
+    title: 'Backend Developer',
+    tagline: 'A passionate Backend Developer building robust and scalable server-side solutions.',
+  },
+  custom: {
+    title: 'Software Engineer',
+    tagline: 'A passionate Software Engineer crafting innovative solutions with modern technologies.',
+  },
+};
+
+// Change this to switch roles: 'fullstack' | 'frontend' | 'backend' | 'custom'
+export const currentRole: DeveloperRole = 'fullstack';
 
 export const personalInfo = {
   name: 'Arun Jawlia',
   firstName: 'Arun',
   lastName: 'Jawlia',
   initials: 'AJ',
-  title: 'Full-Stack Developer',
-  tagline: 'A passionate Full-Stack Developer crafting beautiful digital experiences with modern technologies.',
-  email: 'arunkumar08.mk@gmail.com',
-  phone: '+91 9718653508',
-  location: 'New Delhi, India',
+  title: roleConfig[currentRole].title,
+  tagline: roleConfig[currentRole].tagline,
+  email: 'arun@example.com',
+  phone: '+91 98765 43210',
+  location: 'Mumbai, India',
   availableForWork: true,
-  resumeUrl: 'https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU', // Place your resume PDF in the public folder
+  resumeUrl: 'https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU',
+  githubUrl: 'https://github.com/Arun-Jawlia?tab=repositories',
 };
 
 // ============================================
@@ -80,9 +107,13 @@ export const aboutData = {
 // SKILLS SECTION
 // ============================================
 
+// Skill stack type for filtering
+export type SkillStack = 'frontend' | 'backend' | 'tools';
+
 export const skillCategories = [
   {
     title: 'Frontend',
+    stack: 'frontend' as SkillStack,
     skills: [
       { name: 'React', level: 80 },
       { name: 'HTML', level: 80 },
@@ -95,6 +126,7 @@ export const skillCategories = [
   },
   {
     title: 'Backend',
+    stack: 'backend' as SkillStack,
     skills: [
       { name: 'Node.js', level: 90 },
       { name: 'MongoDB', level: 85 },
@@ -103,10 +135,11 @@ export const skillCategories = [
   },
   {
     title: 'Tools & DevOps',
+    stack: 'tools' as SkillStack,
     skills: [
       { name: 'Git', level: 95 },
       {
-        name:"GitHub",
+        name: "GitHub",
         level: 90
       }
     ],
@@ -122,48 +155,66 @@ export const techIcons = [
 // PROJECTS SECTION
 // ============================================
 
+// Tech stack type for project filtering
+export type TechStack = 'frontend' | 'backend' | 'fullstack';
+
 export const projects = [
+  // Organization Projects
   {
     id: 1,
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce solution with real-time inventory management, payment processing, and analytics dashboard.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-    image: 'https://images.unsplash.com/photo-1661956602116-aa6865609028?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'Digital Platform - User Management Module',
+    description: 'Delivered frontend solutions for Fidelity International as part of a digital transformative initiative. Architected and optimized React-based SPAs within a Microfrontend (MFE) ecosystem, increasing deployment modularity and system scalability. Achieved 90% unit test coverage using Jest.',
+    tags: ['React.js', 'TypeScript', 'Redux', 'Jest', 'Microfrontend', 'Jenkins'],
+    image:
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60',
+    liveUrl: '',
+    githubUrl: '',
     featured: true,
+    category: 'organization' as const,
+    organization: 'Publicis Sapient (Fidelity International)',
+    techStack: 'frontend' as TechStack,
   },
   {
     id: 2,
-    title: 'AI Content Generator',
-    description: 'An AI-powered application that generates marketing content, blog posts, and social media captions using GPT-4.',
-    tags: ['Next.js', 'OpenAI', 'TypeScript', 'Tailwind'],
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'WeMove: Ride-Hailing & Transportation Platform',
+    description: 'Built a high-performance backend for a ride-hailing platform with ride booking, driver allocation, and secure payments. Implemented JWT authentication and Bcrypt hashing. Optimized API performance using Redis caching, improving response time by ~40%. Enabled real-time ride tracking via WebSockets.',
+    tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redis', 'WebSockets'],
+    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=800&auto=format&fit=crop&q=60',
+    liveUrl: '',
+    githubUrl: '',
     featured: true,
+    category: 'organization' as const,
+    techStack: 'backend' as TechStack,
   },
   {
     id: 3,
-    title: 'Real-time Collaboration Tool',
-    description: 'A Notion-like workspace with real-time editing, comments, and team collaboration features.',
-    tags: ['React', 'WebSocket', 'MongoDB', 'Redis'],
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
-    featured: false,
+    title: 'SNOC - Sharjah National Oil Corporation',
+    description: 'Built a React-based oil nomination system for the Dubai government\'s SNOC, streamlining submission and management workflows. Developed dynamic forms with React Hook Form & Yup. Integrated Material-UI for a clean, responsive interface with optimized performance using lazy loading and memoization.',
+    tags: ['React.js', 'Redux', 'Material-UI', 'Axios', 'React Hook Form', 'SPA'],
+    image:
+      'src/assets/images/snoc_image_1.png',
+    liveUrl: '',
+    githubUrl: '',
+    featured: true,
+    category: 'organization' as const,
+    organization: 'Dubai Government',
+    techStack: 'frontend' as TechStack,
   },
   {
     id: 4,
-    title: 'Health & Fitness Tracker',
-    description: 'A mobile-first PWA for tracking workouts, nutrition, and health metrics with AI-powered insights.',
-    tags: ['Vue.js', 'Python', 'TensorFlow', 'Firebase'],
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=60',
-    liveUrl: '#',
-    githubUrl: '#',
+    title: 'Sport & Health - Fitness Tracking App',
+    description: 'Built a React Native fitness app offering personalized training programs for runners and fitness enthusiasts. Developed a Runner Module with real-time tracking and performance analytics. Integrated Google Maps API for live route tracking and activity insights.',
+    tags: ['React Native', 'Google Maps API', 'Performance Analytics'],
+    image:
+      'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=60',
+
+    liveUrl: '',
+    githubUrl: '',
     featured: false,
+    category: 'organization' as const,
+    techStack: 'frontend' as TechStack,
   },
-];
+]
 
 // ============================================
 // EXPERIENCE SECTION
@@ -177,14 +228,14 @@ export const experiences = [
     period: 'Mar, 2025  - Dec, 2025',
     description: 'Leading development of enterprise applications, mentoring junior developers, and architecting scalable solutions.',
     achievements: ['Reduced load time by 40%', 'Led team of 5 developers', 'Implemented CI/CD pipeline'],
-  },  
+  },
   {
     type: 'work' as const,
     title: 'Software Engineer',
     company: 'Ijona Services',
     period: 'Feb, 2024  - Aug, 2025',
     description: 'Created responsive websites and interactive web applications for diverse clients across industries.',
-    achievements: ['Delivered 3+ client projects', 'Mastered React ecosystem', 'Improved team workflow'],
+    achievements: ['Delivered 20+ client projects', 'Mastered React ecosystem', 'Improved team workflow'],
   },
   {
     type: 'education' as const,
