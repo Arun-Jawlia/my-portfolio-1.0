@@ -5,6 +5,11 @@ import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { testimonials } from '@/lib/data';
 
+// Generate avatar using DiceBear API based on name
+const getAvatarUrl = (name: string) => {
+  return `https://api.dicebear.com/7.x/initials/svg?seed=${encodeURIComponent(name)}&backgroundColor=10b981&textColor=ffffff`;
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
 export const Testimonials = () => {
@@ -95,9 +100,10 @@ export const Testimonials = () => {
 
               <div className="flex flex-col items-center gap-4">
                 <img
-                  src={currentTestimonial.image}
+                  src={currentTestimonial.image || getAvatarUrl(currentTestimonial.name)}
                   alt={currentTestimonial.name}
                   className="w-16 h-16 rounded-full object-cover border-2 border-primary"
+                  onError={(e) => { e.currentTarget.src = getAvatarUrl(currentTestimonial.name); }}
                 />
                 <div>
                   <h4 className="font-display font-semibold text-lg">{currentTestimonial.name}</h4>

@@ -118,7 +118,7 @@ export const Hero = () => {
               className="px-8 py-6 text-base font-medium group"
             >
               <Download className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
-              Download Resume
+              Resume & Certificates
             </Button>
           </div>
 
