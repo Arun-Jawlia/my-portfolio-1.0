@@ -180,7 +180,7 @@ export const projects = [
     title: 'WeMove: Ride-Hailing & Transportation Platform',
     description: 'Built a high-performance backend for a ride-hailing platform with ride booking, driver allocation, and secure payments. Implemented JWT authentication and Bcrypt hashing. Optimized API performance using Redis caching, improving response time by ~40%. Enabled real-time ride tracking via WebSockets.',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redis', 'WebSockets'],
-    image: 'public/assets/images/wemove.png',
+    image: '/assets/images/wemove.png',
     liveUrl: '',
     githubUrl: '',
     featured: true,
@@ -193,7 +193,7 @@ export const projects = [
     description: 'Built a React-based oil nomination system for the Dubai government\'s SNOC, streamlining submission and management workflows. Developed dynamic forms with React Hook Form & Yup. Integrated Material-UI for a clean, responsive interface with optimized performance using lazy loading and memoization.',
     tags: ['React.js', 'Redux', 'Material-UI', 'Axios', 'React Hook Form', 'SPA'],
     image:
-      'public/assets/images/snoc_image_1.png',
+      '/assets/images/snoc_image_1.png',
     liveUrl: '',
     githubUrl: '',
     featured: true,
