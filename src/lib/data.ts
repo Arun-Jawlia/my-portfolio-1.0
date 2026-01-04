@@ -77,7 +77,7 @@ export const aboutData = {
   paragraphs: [
     "I'm a passionate full-stack developer with over 2 years of experience building web applications that make a difference. I specialize in creating seamless user experiences using modern technologies like React, JavaScript, Node.js, and cloud platforms.",
     "My journey in tech started with a curiosity about how things work on the internet. Today, I transform that curiosity into innovative solutions that help businesses grow and users succeed.",
-    "When I'm not coding, you'll find me exploring new technologies",
+    "When I'm not coding, you'll find me exploring new technologies and enhance my expertise in various techstack",
     // "When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects, or sharing knowledge through technical writing and mentoring.",
   ],
   highlights: [
@@ -180,7 +180,7 @@ export const projects = [
     title: 'WeMove: Ride-Hailing & Transportation Platform',
     description: 'Built a high-performance backend for a ride-hailing platform with ride booking, driver allocation, and secure payments. Implemented JWT authentication and Bcrypt hashing. Optimized API performance using Redis caching, improving response time by ~40%. Enabled real-time ride tracking via WebSockets.',
     tags: ['Node.js', 'Express.js', 'MongoDB', 'JWT', 'Redis', 'WebSockets'],
-    image: 'https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=800&auto=format&fit=crop&q=60',
+    image: 'public/assets/images/wemove.png',
     liveUrl: '',
     githubUrl: '',
     featured: true,
@@ -188,12 +188,12 @@ export const projects = [
     techStack: 'backend' as TechStack,
   },
   {
-    id: 3,
+  id: 3,
     title: 'SNOC - Sharjah National Oil Corporation',
     description: 'Built a React-based oil nomination system for the Dubai government\'s SNOC, streamlining submission and management workflows. Developed dynamic forms with React Hook Form & Yup. Integrated Material-UI for a clean, responsive interface with optimized performance using lazy loading and memoization.',
     tags: ['React.js', 'Redux', 'Material-UI', 'Axios', 'React Hook Form', 'SPA'],
     image:
-      'src/assets/images/snoc_image_1.png',
+      'public/assets/images/snoc_image_1.png',
     liveUrl: '',
     githubUrl: '',
     featured: true,
@@ -224,49 +224,66 @@ export const projects = [
 export const experiences = [
   {
     type: 'work' as const,
-    title: 'Experience Engineer',
+    title: 'Frontend Engineer',
     company: 'Publicis Sapient (Client: Fidelity International)',
-    period: 'April, 2025 - Present',
-    description: 'Delivering frontend solutions for digital transformative initiatives using microfrontend architecture.',
+    period: 'Apr 2025 – Present',
+    description:
+      'Delivering scalable frontend solutions for enterprise digital transformation using microfrontend architecture.',
     achievements: [
-      'Achieved 90% unit test coverage with Jest for component reliability',
-      'Developed optimized React-based SPAs ensuring modular deployment and scalability',
-      'Utilized Jenkins pipelines for CI/CD automation and build management',
+      'Achieved 90%+ unit test coverage using Jest, improving component reliability and regression safety',
+      'Built and deployed modular React microfrontends enabling independent team releases',
+      'Implemented CI/CD pipelines using Jenkins to automate testing, builds, and deployments',
     ],
   },
   {
     type: 'work' as const,
-    title: 'Senior Software Engineer',
+    title: 'Software Engineer',
     company: 'Ijona Services LLP',
-    period: 'Feb, 2021 - March 2025',
-    description: 'Built scalable web applications using the MERN stack with a focus on performance and security.',
+    period: 'Feb 2024 – Mar 2025',
+    description:
+      'Developed and maintained high-performance web applications using the MERN stack with a focus on scalability and security.',
     achievements: [
-      'Improved application performance by 30% using Redis caching',
-      'Implemented secure authentication using JWT and OAuth 2.0',
-      'Deployed applications on DigitalOcean and managed MongoDB schema design',
+      'Improved application performance by ~30% using Redis caching and query optimization',
+      'Implemented secure authentication using JWT and OAuth 2.0 standards',
+      'Designed MongoDB schemas and deployed applications on DigitalOcean infrastructure',
+    ],
+  },
+  {
+    type: 'education' as const,
+    title: 'Master of Computer Science (Pursuing)',
+    company: 'Indira Gandhi National Open University',
+    period: 'Jan 2025 – Dec 2026',
+    description:
+      'Postgraduate program focused on advanced computer science concepts including systems, algorithms, and software engineering.',
+    achievements: [
+      'Specializing in software engineering and distributed systems',
     ],
   },
   {
     type: 'education' as const,
     title: 'Bachelor of Science',
     company: 'Indira Gandhi National Open University',
-    period: 'June 2017 - June 2021',
-    description: 'Undergraduate degree focused on core science and foundational subjects.',
+    period: 'Jun 2017 – Dec 2020',
+    description:
+      'Undergraduate degree focused on core science subjects and analytical problem solving.',
     achievements: [
-      'Completed four-year degree program',
+      'Completed degree with focus on mathematics and computer fundamentals',
     ],
   },
   {
     type: 'education' as const,
     title: 'Full Stack Web Development',
     company: 'Masai School, Bangalore',
-    period: 'June 2020 - June 2021',
-    description: 'Intensive technical training program specializing in full-stack web development.',
+    period: 'Jan 2022 – Jan 2023',
+    description:
+      'Intensive industry-oriented program focused on full stack web development and data structures.',
     achievements: [
-      'Mastered modern web technologies and industry best practices',
+      'Completed 3,600+ hours of coding, DSA practice, and real-world projects',
+      'Built multiple full stack applications using React, Node.js, MongoDB, and REST APIs',
     ],
   },
 ];
+
 
 // ============================================
 // TESTIMONIALS SECTION
@@ -288,7 +305,7 @@ export const testimonials = [
   {
     id: 2,
     name: 'Shubham, Shubhams',
-    role: 'Experienced Engineer, Fidelity International',
+    role: 'Expert Engineer, Fidelity International',
     image: '',
     content: 'We truly enjoyed working with Arun. His efforts played a key role in delivering the project on time.',
   },
