@@ -9,6 +9,8 @@ import { Testimonials } from '@/components/portfolio/Testimonials';
 import { Contact } from '@/components/portfolio/Contact';
 import { Footer } from '@/components/portfolio/Footer';
 import { Preloader } from '@/components/portfolio/Preloader';
+import { ScrollProgress } from '@/components/portfolio/ScrollProgress';
+import { ScrollToTop } from '@/components/portfolio/ScrollToTop';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -17,6 +19,8 @@ const Index = () => {
     <>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       <main className={`bg-background text-foreground overflow-x-hidden ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
+        <ScrollProgress />
+        <ScrollToTop />
         <Navbar />
         <Hero />
         <About />
