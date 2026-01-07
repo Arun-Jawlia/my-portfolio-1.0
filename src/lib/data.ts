@@ -337,3 +337,38 @@ export const footerData = {
   copyright: `© ${new Date().getFullYear()} ${personalInfo.name}. All rights reserved.`,
   madeIn: 'India',
 };
+
+// ============================================
+// GITHUB DATA
+// ============================================
+
+export const githubData = {
+  username: 'yourusername',
+  profileUrl: 'https://github.com/Arun-Jawlia',
+  totalContributions: 1341,
+  personal: {
+    commits: 817,
+    pullRequests: 124,
+    issues: 0,
+    stars: 21,
+    repositories: 66
+  },
+  organizations: [
+    {
+      name: 'Fidelity International',
+      logo: 'https://github.com/github.png',
+      role: 'Core Contributor',
+      commits: 135,
+      pullRequests: 45,
+      issues: 0
+    },
+    {
+      name: 'Ijona Services LLP',
+      logo: 'https://github.com/vercel.png',
+      role: 'Maintainer',
+      commits: 389,
+      pullRequests: 72,
+      issues: 0
+    }
+  ]
+};

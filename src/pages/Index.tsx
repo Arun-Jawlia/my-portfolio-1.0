@@ -11,6 +11,7 @@ import { Footer } from '@/components/portfolio/Footer';
 import { Preloader } from '@/components/portfolio/Preloader';
 import { ScrollProgress } from '@/components/portfolio/ScrollProgress';
 import { ScrollToTop } from '@/components/portfolio/ScrollToTop';
+import { GitHub } from '@/components/portfolio/Github';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +27,7 @@ const Index = () => {
         <About />
         <Skills />
         <Projects />
+        <GitHub/>
         <Experience />
         <Testimonials />
         <Contact />
