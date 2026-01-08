@@ -158,7 +158,7 @@ export const Projects = () => {
         </div>
 
         {/* Category Tabs */}
-        <div className="flex flex-col  justify-center gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row   justify-center gap-4 mb-8">
           {/* Project Type Filter */}
           <div className="inline-flex bg-secondary/50 rounded-full p-1.5 gap-1 justify-center">
             {categories.map((cat) => (
@@ -276,7 +276,7 @@ export const Projects = () => {
                 <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                <p className="text-muted-foreground text-sm mb-4 line-clamp-4">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
