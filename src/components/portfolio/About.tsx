@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { aboutData } from '@/lib/data';
+import { aboutData, projects } from '@/lib/data';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -76,13 +76,18 @@ export const About = () => {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section id="about" ref={sectionRef} className="section-padding bg-secondary/30 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
+      
+      <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Column - Text */}
           <div>
             <div ref={headingRef}>
-              <span className="text-primary font-medium text-sm uppercase tracking-widest mb-4 block">
+              <span className="inline-flex items-center gap-2 text-primary font-medium text-sm uppercase tracking-widest mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 About Me
               </span>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
@@ -92,26 +97,47 @@ export const About = () => {
               </h2>
             </div>
 
-            <div ref={contentRef} className="space-y-6 text-muted-foreground text-lg">
+            <div ref={contentRef} className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               {aboutData.paragraphs.map((paragraph, index) => (
-                <p key={index}>{paragraph}</p>
+                <p key={index} className="relative pl-4 border-l-2 border-primary/20 hover:border-primary/50 transition-colors">
+                  {paragraph}
+                </p>
               ))}
+              
+              {/* Stats row */}
+              <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-border">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">{aboutData.yearsOfExperience}+</div>
+                  <div className="text-sm text-muted-foreground">Years Exp.</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">{projects && projects.length}+</div>
+                  <div className="text-sm text-muted-foreground">Projects</div>
+                </div>
+                {/* <div className="text-center">
+                  <div className="text-3xl font-bold text-primary">10+</div>
+                  <div className="text-sm text-muted-foreground">Clients</div>
+                </div> */}
+              </div>
             </div>
           </div>
 
           {/* Right Column - Cards */}
           <div ref={cardsRef} className="grid sm:grid-cols-2 gap-6">
-            {aboutData.highlights.map(({ icon: Icon, title, description }) => (
+            {aboutData.highlights.map(({ icon: Icon, title, description }, index) => (
               <div
                 key={title}
-                className="group p-6 rounded-2xl bg-background border border-border hover:border-primary/50 hover-lift cursor-default"
-                style={{ perspective: '1000px' }}
+                className="group p-6 rounded-2xl bg-background/80 backdrop-blur-sm border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default"
+                style={{ 
+                  perspective: '1000px',
+                  animationDelay: `${index * 100}ms`
+                }}
               >
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="w-6 h-6 text-primary" />
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-2">{title}</h3>
-                <p className="text-muted-foreground text-sm">{description}</p>
+                <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
