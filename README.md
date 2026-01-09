@@ -93,7 +93,7 @@
 ### Prerequisites
 
 - Node.js 18+ 
-- npm or bun
+- npm
 
 ### Installation
 
@@ -121,25 +121,6 @@ Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 | `npm run build` | Build for production |
 | `npm run preview` | Preview production build |
 | `npm run lint` | Run ESLint |
-
-## 🐳 Docker Deployment
-
-### Local Testing
-
-```bash
-# Build Docker image
-docker build -t portfolio .
-
-# Run container
-docker run -p 8080:80 portfolio
-```
-
-### Deploy to DigitalOcean
-
-See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions including:
-- DigitalOcean App Platform
-- Droplet with Docker
-- Container Registry
 
 ## 📁 Project Structure
 
