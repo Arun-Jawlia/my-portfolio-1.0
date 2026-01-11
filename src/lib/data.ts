@@ -8,7 +8,6 @@ import {
   Phone,
   Github,
   Linkedin,
-  Twitter,
 } from "lucide-react";
 
 // ============================================
@@ -535,7 +534,7 @@ export const githubData = {
     {
       name: "Ijona Services LLP",
       logo: "https://github.com/vercel.png",
-      role: "Maintainer",
+      role: "Core Contributor",
       commits: 389,
       pullRequests: 72,
       issues: 0,
