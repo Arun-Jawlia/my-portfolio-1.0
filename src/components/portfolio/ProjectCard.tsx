@@ -1,4 +1,6 @@
-import { ArrowUpRight, Github, Building2, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, Building2, CheckCircle2 } from 'lucide-react';
+import { FaGithub } from "react-icons/fa";
+
 import { DeviceMockup } from './DeviceMockup';
 
 interface TechDetail {
@@ -121,7 +123,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
               href={project.githubUrl}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium hover:bg-secondary/80 hover:scale-105 transition-all duration-300 border border-border"
             >
-              <Github className="w-4 h-4" />
+              <FaGithub className="w-4 h-4" />
               Source Code
             </a>
           </div>
