@@ -6,6 +6,8 @@ import {
   Mail,
   MapPin,
   Phone,
+  Github,
+  Linkedin,
 } from "lucide-react";
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
