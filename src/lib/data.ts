@@ -6,9 +6,10 @@ import {
   Mail,
   MapPin,
   Phone,
-  Github,
-  Linkedin,
 } from "lucide-react";
+
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+
 
 // ============================================
 // PERSONAL INFORMATION - Edit this section to update your portfolio
@@ -65,9 +66,9 @@ export const personalInfo = {
 // ============================================
 
 export const socialLinks = [
-  { icon: Github, href: "https://github.com/Arun-Jawlia", label: "GitHub" },
+  { icon: FaGithub, href: "https://github.com/Arun-Jawlia", label: "GitHub" },
   {
-    icon: Linkedin,
+    icon: FaLinkedin,
     href: "https://www.linkedin.com/in/arun-jawlia/",
     label: "LinkedIn",
   },
@@ -242,6 +243,29 @@ export const techIcons = [
 export type TechStack = "frontend" | "backend" | "fullstack";
 
 export const projects = [
+   // Personal Portfolio - This website
+   {
+    id: 0,
+    title: 'Personal Developer Portfolio',
+    description: 'A modern, visually striking portfolio built with React, TypeScript, and GSAP animations. Features smooth scroll effects, lazy loading, code splitting, and a fully responsive design with dark/light mode support.',
+    features: [
+      'Advanced GSAP scroll-based animations',
+      'Code splitting & lazy loading for optimal performance',
+      'Responsive design with mobile-first approach',
+      'Dynamic project filtering system',
+    ],
+    tags: ['React', 'TypeScript', 'Tailwind CSS', 'GSAP', 'Vite', 'Framer Motion'],
+    desktopImages: [
+      'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&auto=format&fit=crop&q=60',
+      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
+    ],
+    mobileImages: [],
+    liveUrl: '#',
+    githubUrl: 'https://github.com/arunjawlia/portfolio',
+    featured: true,
+    category: 'personal' as const,
+    techStack: 'frontend' as TechStack,
+  },
   // Organization Projects
   {
     id: 1,
