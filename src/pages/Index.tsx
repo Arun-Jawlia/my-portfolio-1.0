@@ -14,11 +14,11 @@ import { ScrollToTop } from '@/components/portfolio/ScrollToTop';
 import { GitHub } from '@/components/portfolio/Github';
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <>
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      {/* {isLoading && <Preloader onComplete={() => setIsLoading(false)} />} */}
       <main className={`bg-background text-foreground overflow-x-hidden ${isLoading ? 'overflow-hidden h-screen' : ''}`}>
         <ScrollProgress />
         <ScrollToTop />

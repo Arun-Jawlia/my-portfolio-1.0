@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Github, GitCommit, GitPullRequest, Star, Users, Building2, User } from 'lucide-react';
+import { GitCommit, GitPullRequest, Star, Users, Building2, User } from 'lucide-react';
 import { githubData } from '@/lib/data';
+import { FaGithub } from "react-icons/fa";
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -167,7 +169,7 @@ export const GitHub = () => {
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div ref={headingRef} className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
-            <Github className="w-4 h-4" />
+            <FaGithub className="w-4 h-4" />
             Open Source
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
@@ -189,7 +191,7 @@ export const GitHub = () => {
           <div className="stats-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <StatCard icon={GitCommit} label="Commits" value={githubData.personal.commits} delay={0} />
             <StatCard icon={GitPullRequest} label="Pull Requests" value={githubData.personal.pullRequests} delay={100} />
-            <StatCard icon={Github} label="Issues" value={githubData.personal.issues} delay={200} />
+            <StatCard icon={FaGithub} label="Issues" value={githubData.personal.issues} delay={200} />
             <StatCard icon={Star} label="Stars Earned" value={githubData.personal.stars} delay={300} />
             <StatCard icon={Users} label="Repositories" value={githubData.personal.repositories} delay={400} />
           </div>
@@ -218,7 +220,7 @@ export const GitHub = () => {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-all duration-300 hover:scale-105"
           >
-            <Github className="w-5 h-5" />
+            <FaGithub className="w-5 h-5" />
             View GitHub Profile
           </a>
         </div>
