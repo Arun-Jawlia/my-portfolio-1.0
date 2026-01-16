@@ -117,7 +117,7 @@ export const Contact = () => {
   return (
     <section id="contact" ref={sectionRef} className="section-padding">
       <div className="container-custom">
-        <div ref={headingRef} className="text-center mb-16">
+        <div ref={headingRef} className="text-center mb-10">
           <span className="text-primary font-medium text-sm uppercase tracking-widest mb-4 block">
             Get In Touch
           </span>
@@ -130,7 +130,7 @@ export const Contact = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 max-w-5xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
           {/* Contact Form */}
           <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-4">

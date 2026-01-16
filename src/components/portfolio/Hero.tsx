@@ -103,17 +103,17 @@ export const Hero = () => {
 
           {/* CTAs */}
           <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Button
+            {/* <Button
               size="lg"
               onClick={scrollToProjects}
               className="group px-8 py-6 text-base font-medium"
             >
               View My Work
               <ArrowDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </Button>
+            </Button> */}
             <Button
               size="lg"
-              variant="outline"
+              // variant="outline"
               onClick={handleDownloadResume}
               className="px-8 py-6 text-base font-medium group"
             >

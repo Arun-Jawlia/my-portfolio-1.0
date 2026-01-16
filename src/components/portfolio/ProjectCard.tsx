@@ -1,157 +1,248 @@
-import { ArrowUpRight, Building2, CheckCircle2 } from 'lucide-react';
-import { FaGithub } from "react-icons/fa";
-
-import { DeviceMockup } from './DeviceMockup';
+import { memo, useMemo, useState, useCallback } from "react";
+import { ExternalLink, Github, ChevronRight, Building2 } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 interface TechDetail {
   name: string;
   icon: string;
 }
 
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  features: string[];
+  tags: string[];
+  desktopImages: string[];
+  mobileImages?: string[];
+  videoUrl?: string;
+  liveUrl: string;
+  githubUrl: string;
+  featured: boolean;
+  category: "personal" | "organization";
+  organization?: string;
+  techStack: "frontend" | "backend" | "fullstack";
+}
+
 interface ProjectCardProps {
-  project: {
-    id: number;
-    title: string;
-    description: string;
-    features?: string[];
-    techDetails?: TechDetail[];
-    tags: string[];
-    desktopImages: string[];
-    mobileImages: string[];
-    liveUrl: string;
-    githubUrl: string;
-    category: 'personal' | 'organization';
-    organization?: string;
-    techStack: 'frontend' | 'backend' | 'fullstack';
-  };
+  project: Project;
   index: number;
 }
 
-export const ProjectCard = ({ project, index }: ProjectCardProps) => {
-  const isReversed = index % 2 === 1;
+export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
+  const [currentMobileIndex, setCurrentMobileIndex] = useState(0);
+
+  const desktopImage = useMemo(
+    () => project.desktopImages.find((img) => img && img.trim() !== "") || "",
+    [project.desktopImages]
+  );
+
+  const validMobileImages = useMemo(
+    () =>
+      (project.mobileImages || []).filter((img) => img && img.trim() !== ""),
+    [project.mobileImages]
+  );
+
+  const hasMultipleMobileImages = validMobileImages.length > 1;
+
+  const nextMobileImage = useCallback(() => {
+    setCurrentMobileIndex((prev) => (prev + 1) % validMobileImages.length);
+  }, [validMobileImages.length]);
 
   return (
-    <div className="project-card group relative overflow-hidden rounded-3xl bg-gradient-to-br from-secondary/40 to-secondary/10 border border-border/50 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/10 hover:border-primary/20">
-      <div className={`grid lg:grid-cols-2 gap-0 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
-        {/* Left Side - Project Details */}
-        <div className={`p-8 lg:p-10 flex flex-col justify-center ${isReversed ? 'lg:order-2' : 'lg:order-1'}`}>
-          {/* Organization Badge */}
-          {project.organization && (
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-full text-xs font-medium text-primary mb-4 w-fit">
-              <Building2 className="w-3.5 h-3.5" />
-              {project.organization}
+    <div className="project-card group relative overflow-hidden rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-500">
+      <div className="grid lg:grid-cols-2 gap-0">
+        {/* Content Section - Left */}
+        <div className="p-5 lg:p-6 flex flex-col justify-between order-2 lg:order-1">
+          <div className="space-y-3">
+            {/* Featured Label */}
+            <div className="flex items-center gap-2">
+              <span className="text-primary font-semibold text-xs uppercase tracking-widest">
+                Project {index + 1}
+              </span>
+              {project.organization && (
+                <Badge
+                  variant="outline"
+                  className="text-[10px] flex items-center gap-1 border-primary/30 text-primary py-0.5"
+                >
+                  <Building2 className="w-2.5 h-2.5" />
+                  {project.organization}
+                </Badge>
+              )}
             </div>
-          )}
 
-          {/* Tech Stack Badge */}
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-secondary rounded-full text-xs font-medium text-muted-foreground mb-4 w-fit capitalize">
-            {project.techStack} Project
-          </div>
+            {/* Title */}
+            <h3 className="font-display text-xl lg:text-2xl font-bold leading-tight group-hover:text-primary transition-colors">
+              {project.title}
+            </h3>
 
-          {/* Title */}
-          <h3 className="font-display text-2xl lg:text-3xl font-bold mb-4 group-hover:text-primary transition-colors duration-300">
-            {project.title}
-          </h3>
+            {/* Description Card - Compact */}
+            <div className="bg-secondary/50 rounded-lg p-3 border border-border/30 space-y-2">
+              <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
 
-          {/* Description */}
-          <p className="text-muted-foreground leading-relaxed mb-6">
-            {project.description}
-          </p>
-
-          {/* Features List */}
-          {project.features && project.features.length > 0 && (
-            <div className="mb-6">
-              <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Key Features</h4>
-              <ul className="space-y-2">
-                {project.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-sm text-muted-foreground">
-                    <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Features - Show less */}
+              {project.features.length > 0 && (
+                <ul className="space-y-1">
+                  {project.features.slice(0, 3).map((feature, idx) => (
+                    <li
+                      key={idx}
+                      className="text-[11px] text-muted-foreground flex items-start gap-1.5"
+                    >
+                      <ChevronRight className="w-2.5 h-2.5 text-primary mt-0.5 flex-shrink-0" />
+                      <span className="line-clamp-1">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
-          )}
 
-          {/* Tech Stack Icons */}
-          {project.techDetails && project.techDetails.length > 0 && (
-            <div className="mb-6">
-              <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">Tech Stack</h4>
-              <div className="flex flex-wrap gap-3">
-                {project.techDetails.map((tech) => (
-                  <div
-                    key={tech.name}
-                    className="group/tech flex items-center gap-2 px-3 py-2 bg-background border border-border rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
+            {/* Tech Stack Badges - Compact */}
+            {project && project.tags && (
+              <div className="flex flex-wrap gap-1.5">
+                {project.tags.slice(0, 5).map((tech, idx) => (
+                  <Badge
+                    key={idx}
+                    variant="outline"
+                    className="px-2 py-0.5 text-[10px] border-primary/40 text-primary bg-primary/5"
                   >
-                    <img
-                      src={tech.icon}
-                      alt={tech.name}
-                      className="w-5 h-5"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                    <span className="text-sm font-medium">{tech.name}</span>
-                  </div>
+                    {tech}
+                  </Badge>
                 ))}
               </div>
-            </div>
-          )}
-
-          {/* Tags */}
-          <div className="flex flex-wrap gap-2 mb-6">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-3 py-1 text-xs font-medium bg-secondary/80 text-secondary-foreground rounded-full border border-border/50"
-              >
-                {tag}
-              </span>
-            ))}
+            )}
           </div>
 
-          {/* Action Buttons */}
-          <div className="flex gap-3">
-            <a
-              href={project.liveUrl}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20"
-            >
-              <ArrowUpRight className="w-4 h-4" />
-              Live Demo
-            </a>
-            <a
-              href={project.githubUrl}
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-secondary text-secondary-foreground rounded-full text-sm font-medium hover:bg-secondary/80 hover:scale-105 transition-all duration-300 border border-border"
-            >
-              <FaGithub className="w-4 h-4" />
-              Source Code
-            </a>
+          {/* Action Buttons - Compact */}
+          <div className="flex gap-2 mt-4">
+            {project.liveUrl && project.liveUrl !== "#" && (
+              <Button size="sm" asChild className="h-8 text-xs">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-3 h-3 mr-1.5" />
+                  Demo
+                </a>
+              </Button>
+            )}
+            {project.githubUrl && project.githubUrl !== "#" && (
+              <Button
+                variant="outline"
+                size="sm"
+                asChild
+                className="h-8 text-xs"
+              >
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="w-3 h-3 mr-1.5" />
+                  Code
+                </a>
+              </Button>
+            )}
+            {project.liveUrl === "#" && project.githubUrl === "#" && (
+              <Badge variant="secondary" className="text-[10px] py-1 px-2">
+                Private
+              </Badge>
+            )}
           </div>
         </div>
 
-        {/* Right Side - Device Mockups */}
-        <div className={`relative bg-gradient-to-br from-secondary/30 to-transparent overflow-hidden min-h-[400px] lg:min-h-[500px] flex items-center justify-center ${isReversed ? 'lg:order-1' : 'lg:order-2'}`}>
-          {/* Decorative Elements */}
-          <div className="absolute inset-0 opacity-30">
-            <div className="absolute top-10 right-10 w-32 h-32 bg-primary/20 rounded-full blur-3xl" />
-            <div className="absolute bottom-10 left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
-          </div>
-          
-          {/* Grid Pattern */}
-          <div className="absolute inset-0 opacity-5" style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)',
-            backgroundSize: '24px 24px'
-          }} />
+        {/* Device Mockups Section - Right */}
+        <div className="relative min-h-[240px] lg:min-h-[280px] bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-4 lg:p-6 flex items-center justify-center order-1 lg:order-2 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
 
-          <div className="relative z-10 p-6 lg:p-10 w-full">
-            <DeviceMockup
-              desktopImages={project.desktopImages}
-              mobileImages={project.mobileImages}
-              title={project.title}
-            />
+          {/* Desktop Mockup - Compact */}
+          <div className="relative w-full max-w-sm">
+            <div className="relative bg-secondary/80 rounded-lg overflow-hidden shadow-xl border border-border/50">
+              {/* Browser Chrome - Smaller */}
+              <div className="flex items-center gap-1.5 px-3 py-2 bg-secondary border-b border-border/50">
+                <div className="flex gap-1">
+                  <div className="w-2 h-2 rounded-full bg-red-500/70" />
+                  <div className="w-2 h-2 rounded-full bg-yellow-500/70" />
+                  <div className="w-2 h-2 rounded-full bg-green-500/70" />
+                </div>
+                <div className="flex-1 mx-2">
+                  <div className="bg-background/50 rounded px-2 py-0.5 text-[10px] text-muted-foreground text-center truncate">
+                    {project.liveUrl !== "#"
+                      ? project.liveUrl
+                      : project.title.toLowerCase().replace(/\s+/g, "-") +
+                        ".com"}
+                  </div>
+                </div>
+              </div>
+
+              <div className="aspect-video bg-background/20 relative overflow-hidden">
+                {desktopImage ? (
+                  <img
+                    src={desktopImage}
+                    alt={`${project.title} desktop view`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/30 to-primary/10">
+                    <span className="font-display text-lg font-bold text-primary/80 text-center px-4">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Mobile Mockup - Smaller */}
+            <div className="absolute -bottom-2 -right-2 lg:-bottom-3 lg:-right-3 w-16 lg:w-20 z-10">
+              <div className="relative bg-secondary/90 rounded-lg overflow-hidden shadow-lg border border-border/50">
+                <div className="aspect-[9/16] bg-background/20 relative overflow-hidden">
+                  {validMobileImages.length > 0 ? (
+                    <>
+                      <img
+                        src={validMobileImages[currentMobileIndex]}
+                        alt={`${project.title} mobile view`}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        onClick={
+                          hasMultipleMobileImages ? nextMobileImage : undefined
+                        }
+                      />
+                      {hasMultipleMobileImages && (
+                        <div className="absolute bottom-0.5 left-1/2 -translate-x-1/2 flex gap-0.5">
+                          {validMobileImages.map((_, idx) => (
+                            <div
+                              key={idx}
+                              className={cn(
+                                "w-0.5 h-0.5 rounded-full",
+                                idx === currentMobileIndex
+                                  ? "bg-primary"
+                                  : "bg-background/40"
+                              )}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/30 to-primary/10 p-1">
+                      <span className="font-display text-[6px] font-bold text-primary/80 text-center">
+                        {project.title}
+                      </span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-};
+});
+
+ProjectCard.displayName = "ProjectCard";

@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { aboutData, projects } from '@/lib/data';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { aboutData, projects } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,12 +21,12 @@ export const About = () => {
           y: 0,
           opacity: 1,
           duration: 1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: headingRef.current,
-            start: 'top 80%',
-            end: 'top 50%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none reverse",
           },
         }
       );
@@ -39,107 +39,120 @@ export const About = () => {
           y: 0,
           opacity: 1,
           duration: 1,
-          ease: 'power3.out',
+          ease: "power3.out",
           scrollTrigger: {
             trigger: contentRef.current,
-            start: 'top 80%',
-            end: 'top 50%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none reverse",
           },
         }
       );
 
-      // Cards stagger animation
-      const cards = cardsRef.current?.children;
-      if (cards) {
-        gsap.fromTo(
-          cards,
-          { y: 100, opacity: 0, rotateX: -15 },
-          {
-            y: 0,
-            opacity: 1,
-            rotateX: 0,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cardsRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        );
-      }
+      // // Cards stagger animation
+      // const cards = cardsRef.current?.children;
+      // if (cards) {
+      //   gsap.fromTo(
+      //     cards,
+      //     { y: 100, opacity: 0, rotateX: -15 },
+      //     {
+      //       y: 0,
+      //       opacity: 1,
+      //       rotateX: 0,
+      //       duration: 0.8,
+      //       stagger: 0.15,
+      //       ease: "power3.out",
+      //       scrollTrigger: {
+      //         trigger: cardsRef.current,
+      //         start: "top 75%",
+      //         toggleActions: "play none none reverse",
+      //       },
+      //     }
+      //   );
+      // }
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="section-padding bg-secondary/30 relative overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl" />
-      
+    <section
+      id="about"
+      ref={sectionRef}
+      className="py-16 md:py-20 bg-secondary/20 relative overflow-hidden"
+    >
+      {/* Cute floating decorations */}
+      <div
+        className="absolute top-10 left-[10%] w-3 h-3 bg-primary/40 rounded-full animate-bounce"
+        style={{ animationDelay: "0s" }}
+      />
+      <div
+        className="absolute top-20 right-[15%] w-2 h-2 bg-primary/30 rounded-full animate-bounce"
+        style={{ animationDelay: "0.5s" }}
+      />
+      <div
+        className="absolute bottom-16 left-[20%] w-2.5 h-2.5 bg-primary/35 rounded-full animate-bounce"
+        style={{ animationDelay: "1s" }}
+      />
+
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Column - Text */}
-          <div>
-            <div ref={headingRef}>
-              <span className="inline-flex items-center gap-2 text-primary font-medium text-sm uppercase tracking-widest mb-6 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                About Me
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-                {aboutData.heading}
-                <br />
-                <span className="text-gradient">{aboutData.headingHighlight}</span>
-              </h2>
+        {/* Header */}
+        <div ref={headingRef} className="text-center mb-10">
+          <span className="inline-flex items-center gap-2 text-primary font-medium text-xs uppercase tracking-widest mb-4 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20">
+            <span className="text-base">✨</span>
+            About Me
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">
+            {aboutData.heading}{" "}
+            <span className="text-gradient">{aboutData.headingHighlight}</span>
+          </h2>
+        </div>
+
+        {/* Main content - compact card */}
+        <div ref={contentRef} className="max-w-4xl mx-auto">
+          <div className="bg-background/60 backdrop-blur-sm rounded-3xl border border-border p-6 md:p-8 mb-8">
+            {/* Bio text */}
+            <div className="space-y-3 text-muted-foreground text-sm md:text-base leading-relaxed mb-6">
+              {aboutData.paragraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
             </div>
 
-            <div ref={contentRef} className="space-y-6 text-muted-foreground text-lg leading-relaxed">
-              {aboutData.paragraphs.map((paragraph, index) => (
-                <p key={index} className="relative pl-4 border-l-2 border-primary/20 hover:border-primary/50 transition-colors">
-                  {paragraph}
-                </p>
-              ))}
-              
-              {/* Stats row */}
-              <div className="grid grid-cols-3 gap-4 pt-8 mt-8 border-t border-border">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{aboutData.yearsOfExperience}+</div>
-                  <div className="text-sm text-muted-foreground">Years Exp.</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">{projects && projects.length}+</div>
-                  <div className="text-sm text-muted-foreground">Projects</div>
-                </div>
-                {/* <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">10+</div>
-                  <div className="text-sm text-muted-foreground">Clients</div>
-                </div> */}
+            {/* Stats - inline cute pills */}
+            <div className="flex flex-wrap justify-center gap-3">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <span className="text-lg">🚀</span>
+                <span className="font-semibold text-primary">{aboutData.yearsOfExperience}</span>
+                <span className="text-sm text-muted-foreground">Years</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <span className="text-lg">💼</span>
+                <span className="font-semibold text-primary">{projects.length}+</span>
+                <span className="text-sm text-muted-foreground">Projects</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Cards */}
-          <div ref={cardsRef} className="grid sm:grid-cols-2 gap-6">
-            {aboutData.highlights.map(({ icon: Icon, title, description }, index) => (
-              <div
-                key={title}
-                className="group p-6 rounded-2xl bg-background/80 backdrop-blur-sm border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 cursor-default"
-                style={{ 
-                  perspective: '1000px',
-                  animationDelay: `${index * 100}ms`
-                }}
-              >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-7 h-7 text-primary" />
+          {/* Highlight cards - compact grid */}
+          <div ref={cardsRef} className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {aboutData.highlights.map(
+              ({ icon: Icon, title, description }, index) => (
+                <div
+                  key={title}
+                  className="group p-4 rounded-2xl bg-background/70 backdrop-blur-sm border border-border hover:border-primary/40 hover:shadow-md hover:shadow-primary/5 transition-all duration-300 text-center"
+                >
+                  <div className="w-10 h-10 mx-auto rounded-xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                    <Icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-display text-sm font-semibold mb-1 group-hover:text-primary transition-colors">
+                    {title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs leading-relaxed line-clamp-2">
+                    {description}
+                  </p>
                 </div>
-                <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-primary transition-colors">{title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{description}</p>
-              </div>
-            ))}
+              )
+            )}
           </div>
         </div>
       </div>

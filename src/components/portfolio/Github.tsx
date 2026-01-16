@@ -160,14 +160,14 @@ export const GitHub = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="github" className="py-20 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="github" className="py-12 md:py-20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-secondary/20 to-background" />
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div ref={headingRef} className="text-center mb-16">
+        <div ref={headingRef} className="text-center mb-10">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-6">
             <FaGithub className="w-4 h-4" />
             Open Source
@@ -181,7 +181,7 @@ export const GitHub = () => {
         </div>
 
         {/* Personal Stats */}
-        <div className="mb-16">
+        <div className="mb-10">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-2 rounded-lg bg-primary/10">
               <User className="w-5 h-5 text-primary" />
