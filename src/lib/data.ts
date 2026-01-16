@@ -6,12 +6,9 @@ import {
   Mail,
   MapPin,
   Phone,
-  Github,
-  Linkedin,
 } from "lucide-react";
 
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
 
 // ============================================
 // PERSONAL INFORMATION - Edit this section to update your portfolio
@@ -59,7 +56,7 @@ export const personalInfo = {
   location: "New Delhi, Delhi, India",
   availableForWork: true,
   resumeUrl:
-    "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU",
+    "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU?usp=drive_link",
   githubUrl: "https://github.com/Arun-Jawlia?tab=repositories",
 };
 
@@ -245,28 +242,36 @@ export const techIcons = [
 export type TechStack = "frontend" | "backend" | "fullstack";
 
 export const projects = [
-   // Personal Portfolio - This website
-   {
+  // Personal Portfolio - This website
+  {
     id: 0,
-    title: 'Personal Developer Portfolio',
-    description: 'A modern, visually striking portfolio built with React, TypeScript, and GSAP animations. Features smooth scroll effects, lazy loading, code splitting, and a fully responsive design with dark/light mode support.',
+    title: "Personal Developer Portfolio",
+    description:
+      "A modern, visually striking portfolio built with React, TypeScript, and GSAP animations. Features smooth scroll effects, lazy loading, code splitting, and a fully responsive design with dark/light mode support.",
     features: [
-      'Advanced GSAP scroll-based animations',
-      'Code splitting & lazy loading for optimal performance',
-      'Responsive design with mobile-first approach',
-      'Dynamic project filtering system',
+      "Advanced GSAP scroll-based animations",
+      "Code splitting & lazy loading for optimal performance",
+      "Responsive design with mobile-first approach",
+      "Dynamic project filtering system",
     ],
-    tags: ['React', 'TypeScript', 'Tailwind CSS', 'GSAP', 'Vite', 'Framer Motion'],
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "GSAP",
+      "Vite",
+      "Framer Motion",
+    ],
     desktopImages: [
-      'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&auto=format&fit=crop&q=60',
-      'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60',
+      "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&auto=format&fit=crop&q=60",
+      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60",
     ],
     mobileImages: [],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/arunjawlia/portfolio',
+    liveUrl: "#",
+    githubUrl: "https://github.com/arunjawlia/portfolio",
     featured: true,
-    category: 'personal' as const,
-    techStack: 'frontend' as TechStack,
+    category: "personal" as const,
+    techStack: "frontend" as TechStack,
   },
   // Organization Projects
   {
@@ -391,7 +396,6 @@ export const projects = [
     category: "personal" as const,
     techStack: "frontend" as TechStack,
   },
-  
 ];
 
 // ============================================
@@ -405,11 +409,10 @@ export const experiences = [
     company: "Publicis Sapient (Client: Fidelity International)",
     period: "Apr 2025 – Present",
     description:
-      "Delivering scalable frontend solutions for enterprise digital transformation using microfrontend architecture.",
+      "Building scalable enterprise frontend systems using microfrontend architecture.",
     achievements: [
-      "Achieved 90%+ unit test coverage using Jest, improving component reliability and regression safety",
-      "Built and deployed modular React microfrontends enabling independent team releases",
-      "Implemented CI/CD pipelines using Jenkins to automate testing, builds, and deployments",
+      "Achieved 90%+ test coverage with Jest; improved release stability",
+      "Built React microfrontends with automated CI/CD via Jenkins",
     ],
   },
   {
@@ -417,24 +420,20 @@ export const experiences = [
     title: "Software Engineer",
     company: "Ijona Services LLP",
     period: "Feb 2024 – Mar 2025",
-    description:
-      "Developed and maintained high-performance web applications using the MERN stack with a focus on scalability and security.",
+    description: "Developed scalable and secure MERN-based web applications.",
     achievements: [
-      "Improved application performance by ~30% using Redis caching and query optimization",
-      "Implemented secure authentication using JWT and OAuth 2.0 standards",
-      "Designed MongoDB schemas and deployed applications on DigitalOcean infrastructure",
+      "Improved performance ~30% using Redis and query optimization",
+      "Implemented JWT/OAuth 2.0 auth; deployed on DigitalOcean",
     ],
   },
   {
     type: "education" as const,
-    title: "Master of Computer Science (Pursuing)",
+    title: "Master of Computer Science ",
     company: "Indira Gandhi National Open University",
     period: "Jan 2025 – Dec 2026",
     description:
       "Postgraduate program focused on advanced computer science concepts including systems, algorithms, and software engineering.",
-    achievements: [
-      "Specializing in software engineering and distributed systems",
-    ],
+    achievements: [],
   },
   {
     type: "education" as const,
@@ -443,9 +442,7 @@ export const experiences = [
     period: "Jun 2017 – Dec 2020",
     description:
       "Undergraduate degree focused on core science subjects and analytical problem solving.",
-    achievements: [
-      "Completed degree with focus on mathematics and computer fundamentals",
-    ],
+    achievements: [],
   },
   {
     type: "education" as const,
@@ -454,10 +451,7 @@ export const experiences = [
     period: "Jan 2022 – Jan 2023",
     description:
       "Intensive industry-oriented program focused on full stack web development and data structures.",
-    achievements: [
-      "Completed 3,600+ hours of coding, DSA practice, and real-world projects",
-      "Built multiple full stack applications using React, Node.js, MongoDB, and REST APIs",
-    ],
+    achievements: [],
   },
 ];
 
@@ -517,7 +511,7 @@ export const contactInfo = [
     value: personalInfo.phone,
     href: `tel:${personalInfo.phone.replace(/\s/g, "")}`,
   },
-  { icon: MapPin, label: "Location", value: personalInfo.location, href: "#" },
+  { icon: MapPin, label: "Location", value: personalInfo.location },
 ];
 
 // ============================================

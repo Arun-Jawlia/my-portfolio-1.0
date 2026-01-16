@@ -82,7 +82,7 @@ export const Skills = () => {
   return (
     <section id="skills" ref={sectionRef} className="section-padding overflow-hidden">
       <div className="container-custom">
-        <div ref={headingRef} className="text-center mb-12">
+        <div ref={headingRef} className="text-center mb-10">
           <span className="text-primary font-medium text-sm uppercase tracking-widest mb-4 block">
             My Skills
           </span>
@@ -92,7 +92,7 @@ export const Skills = () => {
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center mb-10">
           <div className="inline-flex bg-secondary/50 rounded-full p-1.5 gap-1 flex-wrap justify-center">
             {filterCategories.map((cat) => (
               <button
@@ -112,7 +112,7 @@ export const Skills = () => {
         </div>
 
         {/* Skills Grid */}
-        <div ref={skillCardsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 mb-16">
+        <div ref={skillCardsRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 md:gap-6 mb-16">
           {allSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
@@ -164,7 +164,7 @@ export const Skills = () => {
         </div>
 
         {/* Tech Marquee */}
-        <div ref={marqueeRef} className="relative overflow-hidden py-8">
+        <div ref={marqueeRef} className="relative overflow-hidden py-2">
           {/* Gradient Overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />

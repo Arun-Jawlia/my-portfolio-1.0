@@ -78,7 +78,7 @@ export const Testimonials = () => {
   return (
     <section id="testimonials" ref={sectionRef} className="section-padding bg-secondary/30">
       <div className="container-custom">
-        <div ref={headingRef} className="text-center mb-16">
+        <div ref={headingRef} className="text-center mb-10">
           <span className="text-primary font-medium text-sm uppercase tracking-widest mb-4 block">
             Testimonials
           </span>

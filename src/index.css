@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 5%;
 
-    --primary: 142 76% 36%;
+    --primary: 190 76% 36%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 96%;
@@ -62,7 +62,8 @@
     --popover: 0 0% 8%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 142 76% 45%;
+    --primary: 190 76% 45%;
+    /* --primary: 142 76% 45%; */
     --primary-foreground: 0 0% 5%;
 
     --secondary: 0 0% 15%;
@@ -125,7 +126,7 @@
   }
 
   .section-padding {
-    @apply py-24 md:py-32 lg:py-40;
+    @apply py-24 md:py-32 lg:py-32;
   }
 
   .container-custom {
