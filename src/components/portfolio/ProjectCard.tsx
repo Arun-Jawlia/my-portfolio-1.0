@@ -1,8 +1,9 @@
 import { memo, useMemo, useState, useCallback } from "react";
-import { ExternalLink, Github, ChevronRight, Building2 } from "lucide-react";
+import { ExternalLink, ChevronRight, Building2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { FaGithub } from "react-icons/fa";
 
 interface TechDetail {
   name: string;
@@ -53,9 +54,9 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
 
   return (
     <div className="project-card group relative overflow-hidden rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-500">
-      <div className="grid lg:grid-cols-2 gap-0">
+      <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-0 ">
         {/* Content Section - Left */}
-        <div className="p-5 lg:p-6 flex flex-col justify-between order-2 lg:order-1">
+        <div className={`p-5 lg:p-6 flex flex-col justify-between ${index % 2 === 0 ? "md:order-2" : 'md:order-1'} sm:order-2`}>
           <div className="space-y-3">
             {/* Featured Label */}
             <div className="flex items-center gap-2">
@@ -142,7 +143,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="w-3 h-3 mr-1.5" />
+                  <FaGithub className="w-3 h-3 mr-1.5" />
                   Code
                 </a>
               </Button>
@@ -156,7 +157,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
         </div>
 
         {/* Device Mockups Section - Right */}
-        <div className="relative min-h-[240px] lg:min-h-[280px] bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-4 lg:p-6 flex items-center justify-center order-1 lg:order-2 overflow-hidden">
+        <div className={`relative min-h-[240px] lg:min-h-[280px] bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-4 lg:p-6 flex items-center justify-center ${index % 2 === 0 ? "md:order-1" : 'md:order-2'} sm:order-1   overflow-hidden`}>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
 
           {/* Desktop Mockup - Compact */}
@@ -174,7 +175,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
                     {project.liveUrl !== "#"
                       ? project.liveUrl
                       : project.title.toLowerCase().replace(/\s+/g, "-") +
-                        ".com"}
+                      ".com"}
                   </div>
                 </div>
               </div>
