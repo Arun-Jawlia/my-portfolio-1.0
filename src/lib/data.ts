@@ -263,12 +263,14 @@ export const projects = [
       "Framer Motion",
     ],
     desktopImages: [
-      "https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&auto=format&fit=crop&q=60",
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=60",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115827_efcypg.png",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115808_rbzhqj.png",
     ],
-    mobileImages: [],
-    liveUrl: "#",
-    githubUrl: "https://github.com/arunjawlia/portfolio",
+    mobileImages: [
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717903/Screenshot_2026-01-18_115724_mkg6l4.png"
+    ],
+    liveUrl: "http://arun-jawlia.vercel.app/",
+    githubUrl: "https://github.com/Arun-Jawlia/my-portfolio-1.0",
     featured: true,
     category: "personal" as const,
     techStack: "frontend" as TechStack,
@@ -276,7 +278,7 @@ export const projects = [
   // Organization Projects
   {
     id: 1,
-    title: "Digital Platform - User Management Module",
+    title: "User Management Module",
     description:
       "Delivered frontend solutions for Fidelity International as part of a digital transformative initiative. Architected and optimized React-based SPAs within a Microfrontend (MFE) ecosystem, increasing deployment modularity and system scalability. Achieved 90% unit test coverage using Jest.",
     tags: [
@@ -343,8 +345,8 @@ export const projects = [
       "Lazy loading & memoization for performance",
       "Role-based access control system",
     ],
-    desktopImages: ["/assets/images/snoc_image_1.png"],
-    mobileImages: [],
+    desktopImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121717_run6ck.png"],
+    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121734_zpqaal.png"],
     liveUrl: "",
     githubUrl: "",
     featured: true,
@@ -365,10 +367,10 @@ export const projects = [
       "Social sharing & leaderboards",
     ],
     desktopImages: [
-      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&fit=crop&q=60",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768719170/Screenshot_2026-01-18_122143_i2tf5v.png",
     ],
-    mobileImages: [],
-    liveUrl: "",
+    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768719171/unnamed_1_ljllrg.webp"],
+    liveUrl: "https://play.google.com/store/apps/details?id=com.sportshealth&hl=en_IN&pli=1",
     githubUrl: "",
     featured: false,
     category: "organization" as const,
@@ -387,9 +389,11 @@ export const projects = [
       "Watch full-length movies instead of just trailers",
     ],
     desktopImages: [
-      "https://images.unsplash.com/photo-1517602302552-471fe67acf66?w=800&auto=format&fit=crop&q=60",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115916_cvf7w1.png",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717905/Screenshot_2026-01-18_115925_a8qheh.png",
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115936_nqdaup.png"
     ],
-    mobileImages: [],
+    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115956_cy39qb.png"],
     liveUrl: "https://movie-junction.vercel.app/",
     githubUrl: "https://github.com/Arun-Jawlia/movie-junction",
     featured: false,
@@ -582,9 +586,8 @@ export const contactInfo = [
 export const footerData = {
   tagline:
     "Full-Stack Developer passionate about creating beautiful digital experiences.",
-  copyright: `© ${new Date().getFullYear()} ${
-    personalInfo.name
-  }. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} ${personalInfo.name
+    }. All rights reserved.`,
   madeIn: "India",
 };
 
