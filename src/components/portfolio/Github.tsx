@@ -20,7 +20,7 @@ const StatCard = ({ icon: Icon, label, value, delay }: { icon: any; label: strin
           const steps = 60;
           const increment = value / steps;
           let current = 0;
-          
+
           const timer = setInterval(() => {
             current += increment;
             if (current >= value) {
@@ -45,7 +45,7 @@ const StatCard = ({ icon: Icon, label, value, delay }: { icon: any; label: strin
   }, [value]);
 
   return (
-    <div 
+    <div
       ref={cardRef}
       className="stat-card group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
       style={{ animationDelay: `${delay}ms` }}
@@ -66,15 +66,15 @@ const StatCard = ({ icon: Icon, label, value, delay }: { icon: any; label: strin
 
 const OrganizationCard = ({ org, index }: { org: typeof githubData.organizations[0]; index: number }) => {
   return (
-    <div 
+    <div
       className="org-card group relative bg-card/50 backdrop-blur-sm border border-border/50 rounded-2xl p-6 hover:border-primary/50 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
       <div className="relative z-10">
         <div className="flex items-center gap-4 mb-6">
-          <img 
-            src={org.logo} 
+          <img
+            src={org.logo}
             alt={org.name}
             className="w-12 h-12 rounded-xl border border-border/50 object-cover"
           />
@@ -92,10 +92,10 @@ const OrganizationCard = ({ org, index }: { org: typeof githubData.organizations
             <p className="text-xl font-bold text-foreground">{org.pullRequests}</p>
             <p className="text-xs text-muted-foreground">PRs</p>
           </div>
-          <div className="text-center">
+          {/* <div className="text-center">
             <p className="text-xl font-bold text-foreground">{org.issues}</p>
             <p className="text-xs text-muted-foreground">Issues</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -188,12 +188,12 @@ export const GitHub = () => {
             </div>
             <h3 className="text-xl font-semibold text-foreground">Personal Contributions</h3>
           </div>
-          <div className="stats-grid grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+          <div className="stats-grid grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <StatCard icon={Users} label="Repositories" value={githubData.personal.repositories} delay={400} />
             <StatCard icon={GitCommit} label="Commits" value={githubData.personal.commits} delay={0} />
             <StatCard icon={GitPullRequest} label="Pull Requests" value={githubData.personal.pullRequests} delay={100} />
-            <StatCard icon={FaGithub} label="Issues" value={githubData.personal.issues} delay={200} />
-            <StatCard icon={Star} label="Stars Earned" value={githubData.personal.stars} delay={300} />
-            <StatCard icon={Users} label="Repositories" value={githubData.personal.repositories} delay={400} />
+            {/* <StatCard icon={FaGithub} label="Issues" value={githubData.personal.issues} delay={200} /> */}
+            <StatCard icon={Star} label="Stars Earned" value={githubData.personal.stars} delay={200} />
           </div>
         </div>
 
@@ -205,7 +205,7 @@ export const GitHub = () => {
             </div>
             <h3 className="text-xl font-semibold text-foreground">Organization Contributions</h3>
           </div>
-          <div className="org-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="org-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {githubData.organizations.map((org, index) => (
               <OrganizationCard key={org.name} org={org} index={index} />
             ))}

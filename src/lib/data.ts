@@ -399,6 +399,67 @@ export const projects = [
 ];
 
 // ============================================
+// MORE PROJECTS SECTION (Compact/Mini Projects)
+// ============================================
+
+export const moreProjects = [
+  // {
+  //   id: 101,
+  //   title: 'Weather Dashboard',
+  //   subtitle: 'Real-time Weather Tracking',
+  //   description: 'A weather app with real-time data, forecasts, and location-based updates.',
+  //   tags: ['React', 'API', 'CSS'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+  // {
+  //   id: 102,
+  //   title: 'Task Manager CLI',
+  //   subtitle: 'Command-line Productivity Tool',
+  //   description: 'Command-line task manager with file-based storage and priority sorting.',
+  //   tags: ['Node.js', 'CLI', 'JavaScript'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+  // {
+  //   id: 103,
+  //   title: 'Markdown Editor',
+  //   subtitle: 'Live Preview Editor',
+  //   description: 'Live preview markdown editor with syntax highlighting and export options.',
+  //   tags: ['React', 'Markdown', 'TypeScript'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+  // {
+  //   id: 104,
+  //   title: 'REST API Boilerplate',
+  //   subtitle: 'Backend Starter Kit',
+  //   description: 'Express.js starter with auth, validation, and database integration.',
+  //   tags: ['Node.js', 'Express', 'MongoDB'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+  // {
+  //   id: 105,
+  //   title: 'Portfolio Template',
+  //   subtitle: 'Developer Showcase',
+  //   description: 'Minimal portfolio template with dark mode and smooth animations.',
+  //   tags: ['HTML', 'CSS', 'JavaScript'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+  // {
+  //   id: 106,
+  //   title: 'Chat Application',
+  //   subtitle: 'Real-time Messaging',
+  //   description: 'Real-time chat app with rooms, typing indicators, and message history.',
+  //   tags: ['Socket.io', 'React', 'Node.js'],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  // },
+];
+
+// ============================================
 // EXPERIENCE SECTION
 // ============================================
 
