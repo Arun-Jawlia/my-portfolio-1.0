@@ -56,7 +56,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
     <div className="project-card group relative overflow-hidden rounded-xl bg-card/50 backdrop-blur-sm border border-border/30 hover:border-primary/30 transition-all duration-500">
       <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-0 ">
         {/* Content Section - Left */}
-        <div className={`p-5 lg:p-6 flex flex-col justify-between ${index % 2 === 0 ? "md:order-2" : 'md:order-1'} sm:order-2`}>
+        <div className={`p-5 lg:p-6 flex flex-col justify-between ${index % 2 === 0 ? "md:order-2" : 'md:order-1'} order-2`}>
           <div className="space-y-3">
             {/* Featured Label */}
             <div className="flex items-center gap-2">
@@ -157,7 +157,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
         </div>
 
         {/* Device Mockups Section - Right */}
-        <div className={`relative min-h-[240px] lg:min-h-[280px] bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-4 lg:p-6 flex items-center justify-center ${index % 2 === 0 ? "md:order-1" : 'md:order-2'} sm:order-1   overflow-hidden`}>
+        <div className={`relative min-h-[240px] lg:min-h-[280px] bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-4 lg:p-6 flex items-center justify-center ${index % 2 === 0 ? "md:order-1" : 'md:order-2'} order-1   overflow-hidden`}>
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent" />
 
           {/* Desktop Mockup - Compact */}
