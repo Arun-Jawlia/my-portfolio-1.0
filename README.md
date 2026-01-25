@@ -32,7 +32,7 @@
 
 ### 🎨 Design
 - Clean, minimal & premium aesthetic
-- White, black & green color palette
+- White, black & blue color palette
 - Bold, modern typography
 - Smooth micro-interactions
 - Dark/Light theme toggle
@@ -86,18 +86,9 @@
 | **UI Components** | shadcn/ui, Radix UI |
 | **Routing** | React Router DOM |
 | **Styling** | Tailwind CSS, CSS Variables |
-| **Deployment** | Docker, Nginx, DigitalOcean |
+| **Deployment** | Verce; |
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18+ 
-- npm
-
-### Installation
-
-```bash
+```
 # Clone the repository
 git clone https://github.com/yourusername/portfolio.git
 
@@ -109,7 +100,6 @@ npm install
 
 # Start development server
 npm run dev
-```
 
 Open [http://localhost:8080](http://localhost:8080) to view it in your browser.
 
@@ -133,7 +123,6 @@ src/
 │   │   ├── Skills.tsx
 │   │   ├── Projects.tsx
 │   │   ├── Experience.tsx
-│   │   ├── Testimonials.tsx
 │   │   ├── Certificates.tsx
 │   │   ├── Contact.tsx
 │   │   ├── GitHub.tsx
