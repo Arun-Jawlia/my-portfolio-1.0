@@ -407,15 +407,15 @@ export const projects = [
 // ============================================
 
 export const moreProjects = [
-  // {
-  //   id: 101,
-  //   title: 'Weather Dashboard',
-  //   subtitle: 'Real-time Weather Tracking',
-  //   description: 'A weather app with real-time data, forecasts, and location-based updates.',
-  //   tags: ['React', 'API', 'CSS'],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  // },
+  {
+    id: 101,
+    title: 'Nodejs MicroService App',
+    subtitle: 'Learning MicroServices',
+    description: 'It is like a social media app, you can create and share post',
+    tags: ['Nodejs', 'Microservices', 'Winston' ,'Cloudinary' , 'JsonWebToken', 'Redis'],
+    liveUrl: '',
+    githubUrl: 'https://github.com/Arun-Jawlia/nodejs-microservices/tree/main',
+  },
   // {
   //   id: 102,
   //   title: 'Task Manager CLI',
