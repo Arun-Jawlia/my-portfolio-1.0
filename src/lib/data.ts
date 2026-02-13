@@ -56,7 +56,8 @@ export const personalInfo = {
   location: "New Delhi, Delhi, India",
   availableForWork: true,
   resumeUrl:
-    "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU?usp=drive_link",
+    "https://drive.google.com/file/d/1nlAG2bX61m9nmEQiSacrbIqy5i3huvzU/view?usp=sharing",
+  certificateUrl: "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU?usp=drive_link",  
   githubUrl: "https://github.com/Arun-Jawlia?tab=repositories",
 };
 

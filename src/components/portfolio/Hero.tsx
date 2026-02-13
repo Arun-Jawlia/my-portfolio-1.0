@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ArrowDown, Download } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { personalInfo, socialLinks } from '@/lib/data';
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ChevronDown, Download, Award } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { personalInfo, socialLinks } from "@/lib/data";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,19 +18,19 @@ export const Hero = () => {
       tl.fromTo(
         titleRef.current,
         { y: 100, opacity: 0, skewY: 7 },
-        { y: 0, opacity: 1, skewY: 0, duration: 1.2, ease: 'power4.out' }
+        { y: 0, opacity: 1, skewY: 0, duration: 1.2, ease: "power4.out" },
       )
         .fromTo(
           subtitleRef.current,
           { y: 50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' },
-          '-=0.6'
+          { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" },
+          "-=0.6",
         )
         .fromTo(
           ctaRef.current,
           { y: 30, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' },
-          '-=0.4'
+          { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
+          "-=0.4",
         );
 
       // Floating decoration animation
@@ -38,7 +38,7 @@ export const Hero = () => {
         y: -30,
         rotation: 5,
         duration: 4,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
         yoyo: true,
         repeat: -1,
       });
@@ -48,11 +48,15 @@ export const Hero = () => {
   }, []);
 
   const scrollToProjects = () => {
-    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
+    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleDownloadResume = () => {
-    window.open(personalInfo.resumeUrl, '_blank');
+    window.open(personalInfo.resumeUrl, "_blank");
+  };
+
+  const handleViewCertificate = () => {
+    window.open(personalInfo.certificateUrl, "_blank");
   };
 
   return (
@@ -75,7 +79,9 @@ export const Hero = () => {
           {personalInfo.availableForWork && (
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-background/50 backdrop-blur-sm mb-8">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-              <span className="text-sm text-muted-foreground">Available for work</span>
+              <span className="text-sm text-muted-foreground">
+                Available for work
+              </span>
             </div>
           )}
 
@@ -84,7 +90,7 @@ export const Hero = () => {
             ref={titleRef}
             className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.1] tracking-tight mb-6"
           >
-            Hi, I'm{' '}
+            Hi, I'm{" "}
             <span className="relative inline-block">
               <span className="text-gradient">{personalInfo.name}</span>
               <span className="absolute -bottom-2 left-0 w-full h-3 bg-primary/20 -skew-x-12" />
@@ -96,30 +102,37 @@ export const Hero = () => {
             ref={subtitleRef}
             className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10"
           >
-            A passionate{' '}
-            <span className="text-foreground font-medium">{personalInfo.title}</span>{' '}
+            A passionate{" "}
+            <span className="text-foreground font-medium">
+              {personalInfo.title}
+            </span>{" "}
             crafting beautiful digital experiences with modern technologies.
           </p>
 
           {/* CTAs */}
-          <div ref={ctaRef} className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            {/* <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="group px-8 py-6 text-base font-medium"
-            >
-              View My Work
-              <ArrowDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
-            </Button> */}
-            <Button
-              size="lg"
-              // variant="outline"
-              onClick={handleDownloadResume}
-              className="px-8 py-6 text-base font-medium group"
-            >
-              <Download className="mr-2 w-4 h-4 group-hover:scale-110 transition-transform" />
-              Resume & Certificates
+          <div ref={ctaRef} className="relative inline-block mb-16 group/cta">
+            <Button size="lg" className="px-8 py-6 text-base font-medium">
+              Get to Know Me
+              <ChevronDown className="ml-2 w-4 h-4 group-hover/cta:rotate-180 transition-transform duration-300" />
             </Button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 opacity-0 invisible group-hover/cta:opacity-100 group-hover/cta:visible transition-all duration-300 z-20">
+              <div className="flex flex-col gap-2 p-2 rounded-xl border border-border bg-card shadow-lg min-w-[200px]">
+                <button
+                  onClick={handleDownloadResume}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                >
+                  <Download className="w-4 h-4" />
+                  Resume
+                </button>
+                <button
+                  onClick={handleViewCertificate}
+                  className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-foreground hover:bg-primary/10 hover:text-primary transition-colors"
+                >
+                  <Award className="w-4 h-4" />
+                  View Certificate
+                </button>
+              </div>
+            </div>
           </div>
 
           {/* Social Links */}
