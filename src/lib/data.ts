@@ -207,6 +207,7 @@ export const skillCategories = [
       { name: "Node.js", years: 2 },
       { name: "Express.js", years: 2 },
       { name: "MongoDB", years: 2 },
+      { name: "GraphQL", years: 1}
     ],
   },
   {
