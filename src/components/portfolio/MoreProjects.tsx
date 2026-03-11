@@ -98,7 +98,8 @@ export const MoreProjects = memo(() => {
                 </div>
             </div>
             <div className="text-center mt-8">
-                <Link to={personalInfo.githubUrl} target='_blank'>
+                {/* <Link to={personalInfo.githubUrl} target='_blank'> */}
+                <Link to={'/projects'}>
                     <Button variant="outline" size="default" className="group px-6">
                         View All Projects
                         <ArrowUpRight className="ml-2 w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

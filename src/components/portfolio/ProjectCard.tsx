@@ -127,7 +127,7 @@ export const ProjectCard = memo(({ project, index }: ProjectCardProps) => {
                   rel="noopener noreferrer"
                 >
                   <ExternalLink className="w-3 h-3 mr-1.5" />
-                  Demo
+                  Live
                 </a>
               </Button>
             )}
