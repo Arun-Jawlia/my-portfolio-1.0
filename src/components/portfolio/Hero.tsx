@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ChevronDown, Download, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { personalInfo, socialLinks } from "@/lib/data";
+import { personalInfo, socialLinks, skillCategories, skillIcons } from "@/lib/data";
 
 export const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -10,6 +10,8 @@ export const Hero = () => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const decorRef = useRef<HTMLDivElement>(null);
+  const skillsMarqueeRef = useRef<HTMLDivElement>(null);
+  const allSkills = skillCategories.flatMap(cat => cat.skills);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -42,14 +44,20 @@ export const Hero = () => {
         yoyo: true,
         repeat: -1,
       });
+      // Skills marquee animation
+      const marqueeContent = skillsMarqueeRef.current?.querySelector('.skills-marquee-content');
+      if (marqueeContent) {
+        gsap.to(marqueeContent, {
+          xPercent: -50,
+          duration: 30,
+          ease: 'none',
+          repeat: -1,
+        });
+      }
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
-
-  const scrollToProjects = () => {
-    document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleDownloadResume = () => {
     window.open(personalInfo.resumeUrl, "_blank");
@@ -161,13 +169,38 @@ export const Hero = () => {
         <div className="w-full h-full border-2 border-primary/30 rounded-2xl rotate-12" />
         <div className="absolute inset-4 bg-primary/10 rounded-xl -rotate-6" />
       </div>
+      {/* Skills Slider */}
+      <div className="absolute bottom-3 left-0 right-0 overflow-hidden">
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10" />
+        <div ref={skillsMarqueeRef} className="overflow-hidden">
+          <div className="skills-marquee-content flex gap-6 whitespace-nowrap w-max">
+            {[...allSkills, ...allSkills].map((skill, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 px-4 py-2 rounded-full border border-border/50 bg-background/50 backdrop-blur-sm"
+              >
+                <img
+                  src={skillIcons[skill.name] || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.name.toLowerCase()}/${skill.name.toLowerCase()}-original.svg`}
+                  alt={skill.name}
+                  className="w-5 h-5 object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/devicon/devicon-original.svg';
+                  }}
+                />
+                <span className="text-xs font-medium text-muted-foreground">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <div className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

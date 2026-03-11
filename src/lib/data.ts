@@ -57,7 +57,8 @@ export const personalInfo = {
   availableForWork: true,
   resumeUrl:
     "https://drive.google.com/file/d/1nlAG2bX61m9nmEQiSacrbIqy5i3huvzU/view?usp=sharing",
-  certificateUrl: "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU?usp=drive_link",  
+  certificateUrl:
+    "https://drive.google.com/drive/folders/1vnkj6o086Sbby9FWSugWS0doajT62fUU?usp=drive_link",
   githubUrl: "https://github.com/Arun-Jawlia?tab=repositories",
 };
 
@@ -83,7 +84,7 @@ export const navLinks = [
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
   { name: "Experience", href: "#experience" },
-  { name: "Testimonials", href: "#testimonials" },
+  // { name: "Testimonials", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -207,7 +208,7 @@ export const skillCategories = [
       { name: "Node.js", years: 2 },
       { name: "Express.js", years: 2 },
       { name: "MongoDB", years: 2 },
-      { name: "GraphQL", years: 1}
+      { name: "GraphQL", years: 1 },
     ],
   },
   {
@@ -269,7 +270,7 @@ export const projects = [
       "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115808_rbzhqj.png",
     ],
     mobileImages: [
-      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717903/Screenshot_2026-01-18_115724_mkg6l4.png"
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717903/Screenshot_2026-01-18_115724_mkg6l4.png",
     ],
     liveUrl: "http://arun-jawlia.vercel.app/",
     githubUrl: "https://github.com/Arun-Jawlia/my-portfolio-1.0",
@@ -347,8 +348,12 @@ export const projects = [
       "Lazy loading & memoization for performance",
       "Role-based access control system",
     ],
-    desktopImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121717_run6ck.png"],
-    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121734_zpqaal.png"],
+    desktopImages: [
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121717_run6ck.png",
+    ],
+    mobileImages: [
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768718888/Screenshot_2026-01-18_121734_zpqaal.png",
+    ],
     liveUrl: "",
     githubUrl: "",
     featured: true,
@@ -371,37 +376,115 @@ export const projects = [
     desktopImages: [
       "https://res.cloudinary.com/dqday40t0/image/upload/v1768719170/Screenshot_2026-01-18_122143_i2tf5v.png",
     ],
-    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768719171/unnamed_1_ljllrg.webp"],
-    liveUrl: "https://play.google.com/store/apps/details?id=com.sportshealth&hl=en_IN&pli=1",
+    mobileImages: [
+      "https://res.cloudinary.com/dqday40t0/image/upload/v1768719171/unnamed_1_ljllrg.webp",
+    ],
+    liveUrl:
+      "https://play.google.com/store/apps/details?id=com.sportshealth&hl=en_IN&pli=1",
     githubUrl: "",
     featured: false,
     category: "organization" as const,
     techStack: "frontend" as TechStack,
   },
+  // {
+  //   id: 5,
+  //   title: "Movie Junction",
+  //   description:
+  //     "A movie and web series discovery platform built with React and Redux Toolkit Query using the TMDB API. Users can explore the latest movies and web series, view details, ratings, genres, and enjoy full-length content instead of just trailers.",
+  //   tags: ["React", "Redux Toolkit", "TMDB API", "Lazy Loading"],
+  //   features: [
+  //     "Latest movies and web series listing",
+  //     "Advanced search by title, genre, and rating",
+  //     "Detailed movie & series pages with cast and overview",
+  //     "Watch full-length movies instead of just trailers",
+  //   ],
+  //   desktopImages: [
+  //     "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115916_cvf7w1.png",
+  //     "https://res.cloudinary.com/dqday40t0/image/upload/v1768717905/Screenshot_2026-01-18_115925_a8qheh.png",
+  //     "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115936_nqdaup.png"
+  //   ],
+  //   mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115956_cy39qb.png"],
+  //   liveUrl: "https://movie-junction.vercel.app/",
+  //   githubUrl: "https://github.com/Arun-Jawlia/movie-junction",
+  //   featured: false,
+  //   category: "personal" as const,
+  //   techStack: "frontend" as TechStack,
+  // },
   {
     id: 5,
-    title: "Movie Junction",
+    title: "Instagram Clone Backend (Production Architecture)",
     description:
-      "A movie and web series discovery platform built with React and Redux Toolkit Query using the TMDB API. Users can explore the latest movies and web series, view details, ratings, genres, and enjoy full-length content instead of just trailers.",
-    tags: ["React", "Redux Toolkit", "TMDB API", "Lazy Loading"],
+      "Designed and built a production-grade Instagram backend using Node.js, Express, TypeScript, JWT, cookies, and MongoDB. Implemented secure authentication, refresh token rotation, media handling, follow system, likes, comments, and scalable modular architecture.",
+    tags: [
+      "Node.js",
+      "TypeScript",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Cookies",
+      "Cloudinary",
+    ],
     features: [
-      "Latest movies and web series listing",
-      "Advanced search by title, genre, and rating",
-      "Detailed movie & series pages with cast and overview",
-      "Watch full-length movies instead of just trailers",
+      "Access + Refresh token authentication",
+      "Secure cookie-based auth flow",
+      "Follow / unfollow / like / comment modules",
+      "Modular scalable backend architecture",
     ],
-    desktopImages: [
-      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115916_cvf7w1.png",
-      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717905/Screenshot_2026-01-18_115925_a8qheh.png",
-      "https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115936_nqdaup.png"
+    desktopImages: ["/assets/images/instagram-backend.png"],
+    mobileImages: [],
+    liveUrl: "",
+    githubUrl: "",
+    featured: true,
+    category: "personal" as const,
+    techStack: "backend" as TechStack,
+  },
+  {
+    id: 6,
+    title: "JWT Authentication System (Enterprise Security Flow)",
+    description:
+      "Built a reusable enterprise-grade authentication system covering login, signup, token refresh, route protection, session persistence, and role-based access using JWT, refresh tokens, cookies, and middleware.",
+    tags: [
+      "JWT",
+      "Node.js",
+      "Express.js",
+      "Authentication",
+      "Cookies",
+      "Security",
     ],
-    mobileImages: ["https://res.cloudinary.com/dqday40t0/image/upload/v1768717904/Screenshot_2026-01-18_115956_cy39qb.png"],
-    liveUrl: "https://movie-junction.vercel.app/",
-    githubUrl: "https://github.com/Arun-Jawlia/movie-junction",
+    features: [
+      "Refresh token rotation",
+      "Secure HTTP-only cookie handling",
+      "Role-based authorization middleware",
+      "Session persistence architecture",
+    ],
+    desktopImages: ["/assets/images/jwt-system.png"],
+    mobileImages: [],
+    liveUrl: "",
+    githubUrl: "",
     featured: false,
     category: "personal" as const,
-    techStack: "frontend" as TechStack,
+    techStack: "backend" as TechStack,
   },
+  {
+    id: 7,
+    title: "Scalable React Monorepo Architecture",
+    description:
+      "Created a production-level React monorepo architecture for scalable frontend systems using shared UI packages, reusable hooks, TypeScript configuration, linting pipelines, and modular application boundaries.",
+    tags: ["React", "TypeScript", "Monorepo", "Shared UI", "ESLint", "Vite"],
+    features: [
+      "Shared UI component library",
+      "Reusable hooks package",
+      "Centralized TypeScript config",
+      "Scalable app separation strategy",
+    ],
+    desktopImages: ["/assets/images/react-monorepo.png"],
+    mobileImages: [],
+    liveUrl: "",
+    githubUrl: "",
+    featured: true,
+    category: "personal" as const,
+    techStack: "frontend" as TechStack,
+  }
 ];
 
 // ============================================
@@ -411,12 +494,29 @@ export const projects = [
 export const moreProjects = [
   {
     id: 101,
-    title: 'Nodejs MicroService App',
-    subtitle: 'Learning MicroServices',
-    description: 'It is like a social media app, you can create and share post',
-    tags: ['Nodejs', 'Microservices', 'Winston' ,'Cloudinary' , 'JsonWebToken', 'Redis'],
-    liveUrl: '',
-    githubUrl: 'https://github.com/Arun-Jawlia/nodejs-microservices/tree/main',
+    title: "Nodejs MicroService App",
+    subtitle: "Learning MicroServices",
+    description: "It is like a social media app, you can create and share post",
+    tags: [
+      "Nodejs",
+      "Microservices",
+      "Winston",
+      "Cloudinary",
+      "JsonWebToken",
+      "Redis",
+    ],
+    liveUrl: "",
+    githubUrl: "https://github.com/Arun-Jawlia/nodejs-microservices/tree/main",
+  },
+  {
+    id: 102,
+    title: "Movie Junction",
+    subtitle: "Netflix like movie platform",
+    description:
+      "A movie and web series discovery platform built with React and Redux Toolkit Query using the TMDB API. Users can explore the latest movies and web series, view details, ratings, genres, and enjoy full-length content instead of just trailers.",
+    tags: ["React", "Redux Toolkit", "TMDB API", "Lazy Loading"],
+    liveUrl: "https://movie-junction.vercel.app/",
+    githubUrl: "https://github.com/Arun-Jawlia/movie-junction",
   },
   // {
   //   id: 102,
@@ -588,8 +688,9 @@ export const contactInfo = [
 export const footerData = {
   tagline:
     "Full-Stack Developer passionate about creating beautiful digital experiences.",
-  copyright: `© ${new Date().getFullYear()} ${personalInfo.name
-    }. All rights reserved.`,
+  copyright: `© ${new Date().getFullYear()} ${
+    personalInfo.name
+  }. All rights reserved.`,
   madeIn: "India",
 };
 
